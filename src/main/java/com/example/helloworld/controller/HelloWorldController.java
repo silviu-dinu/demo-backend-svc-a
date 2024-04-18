@@ -1,6 +1,5 @@
 package com.example.helloworld.controller;
 
-import jakarta.websocket.server.PathParam;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +19,16 @@ public class HelloWorldController {
         }
 
         return "Hello, " + name;
+    }
+
+    @GetMapping("/health/ready")
+    public void health() {
+        return;
+    }
+
+    @GetMapping("/version")
+    public String version() {
+        return getClass().getPackage().getImplementationVersion();
     }
 
 }
